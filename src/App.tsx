@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const toggleLocales = useCallback(
+    (locale: string) => {
+      i18n.changeLanguage(locale);
+    },
+    [i18n]
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => toggleLocales("en-US")} title="영어로 바꾸기">
+        en
+      </button>
+      <button onClick={() => toggleLocales("ko-KR")} title="한글로 바꾸기">
+        ko
+      </button>
+      {t("test")}
     </div>
   );
 }
