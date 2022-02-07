@@ -3,7 +3,7 @@ import { initReactI18next } from "react-i18next";
 import * as en from "./en";
 import * as ko from "./ko";
 
-export const resources: Resource = {
+const resources: Resource = {
   "en-US": {
     ...en
   },
@@ -11,8 +11,6 @@ export const resources: Resource = {
     ...ko
   }
 } as const;
-
-export const defaultNS = "main";
 
 i18n.use(initReactI18next).init({
   resources,
