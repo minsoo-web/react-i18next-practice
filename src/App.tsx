@@ -1,8 +1,18 @@
 import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
+const About = () => {
+  const { t } = useTranslation("about");
+
+  return (
+    <div>
+      <h1>{t("about_text")}</h1>
+    </div>
+  );
+};
+
 function App() {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation("main");
 
   const toggleLocales = useCallback(
     (locale: string) => {
@@ -20,6 +30,9 @@ function App() {
         ko
       </button>
       {t("test")}
+
+      <hr />
+      <About />
     </div>
   );
 }

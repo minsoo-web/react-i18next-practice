@@ -1,16 +1,18 @@
 import i18n, { Resource } from "i18next";
 import { initReactI18next } from "react-i18next";
-import { mainEn } from "./en";
-import { mainKo } from "./ko";
+import * as en from "./en";
+import * as ko from "./ko";
 
-const resources: Resource = {
+export const resources: Resource = {
   "en-US": {
-    translations: mainEn
+    ...en
   },
   "ko-KR": {
-    translations: mainKo
+    ...ko
   }
-};
+} as const;
+
+export const defaultNS = "main";
 
 i18n.use(initReactI18next).init({
   resources,
@@ -20,8 +22,6 @@ i18n.use(initReactI18next).init({
     default: ["ko-KR"]
   },
   debug: true,
-  defaultNS: "translations",
-  ns: "translations",
   keySeparator: false,
   interpolation: {
     escapeValue: false

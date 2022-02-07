@@ -1,3 +1,4 @@
-import mainKo from "./main.json";
+import main from "./main.json";
+import about from "./about.json";
 
-export { mainKo };
+export { main, about };

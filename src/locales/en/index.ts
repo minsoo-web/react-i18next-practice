@@ -1,3 +1,4 @@
-import mainEn from "./main.json";
+import main from "./main.json";
+import about from "./about.json";
 
-export { mainEn };
+export { main, about };
